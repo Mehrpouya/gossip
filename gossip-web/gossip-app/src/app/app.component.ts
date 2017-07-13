@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Gossip} from "./gossip.component";
 
 @Component({
   selector: 'app-root',
@@ -6,12 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Gossip app';
-  body = 'gossip body';
+  testGossip : Gossip = {title: "my first gossip",body:'did you know that blah blah'};
 }
 
-export class Gossip {
-  title = 'Gossip title';
-  body = 'gossip body';
-  comments = [{user:'anon',comment:'blah'},{user:'anon2',comment:'blah2'}];
-}
