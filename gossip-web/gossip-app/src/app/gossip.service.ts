@@ -1,35 +1,58 @@
 import { Injectable } from '@angular/core';
 import {Gossip} from "./gossip.component";
+import { HttpClient,HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+
+
+import 'rxjs/add/operator/map';//for converting the raw gossip json to gossip class.
+import 'rxjs/add/operator/catch';
+
+// interface Gossip{
+//   title : string; //Title of the gossip
+//   body : string; // Body of the gossip
+// }
 
 @Injectable()
 export class GossipService {
-  apiRoot:string = 'http://localhost:8080/gossip-collection';
+  private apiRoot:string = 'http://localhost:8080/gossip-collection';
 
-  constructor() { }
-  gossips:Gossip[] = [
-    {title : "RBS fraud", body : "blah blah"},{title : "TSB fraud", body : "blah blah blah blah"}
-  ];
+  constructor(private http: HttpClient) {}
+  // gossips:Gossip[] = [
+  //   {title : "RBS fraud", body : "blah blah"},{title : "TSB fraud", body : "blah blah blah blah"}
+  // ];
 
 
-  getGossips(): Promise<Gossip[]> {
-    return Promise.resolve(this.gossips);
+  loadGossips(): Observable<Gossip[]> {
+  return this.http.get(this.apiRoot)
+
+    .map((res:Response) =>
+    {
+      // console.log(res);
+      return res.json();})
+  //   //...errors if any
+  //   .catch((this.handleError));
   }
 
-  updateGossip(_gossip:Gossip):Promise<String>{
-    return Promise.resolve('success');
+  private handleError(error: Response | any) {
+    // console.error(error);
+    // return Observable.throw(error); // <= B
   }
-  addGossip(_gossip:Gossip):Promise<String>{
-    let promise = new Promise((resolve, reject) => {
-      let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
-      this.http.get(apiURL)
-        .toPromise()
-        .then(
-          res => { // Success
-            console.log(res.json());
-            resolve();
-          }
-        );
-    });
-    return promise;
-  }
+
+  // updateGossip(_gossip:Gossip):Promise<String>{
+  //   return Promise.resolve('success');
+  // }
+  // addGossip(_gossip:Gossip):Promise<String>{
+    // let promise = new Promise((resolve, reject) => {
+    //   let apiURL = `${this.apiRoot}?term=${_gossip}&media=music&limit=20`;
+    //   // this.http.get(apiURL)
+    //   //   .toPromise()
+    //   //   .then(
+    //   //     res => { // Success
+    //   //       console.log(res.json());
+    //   //       resolve();
+    //   //     }
+    //   //   );
+    // });
+    // return promise;
+  // }
 }

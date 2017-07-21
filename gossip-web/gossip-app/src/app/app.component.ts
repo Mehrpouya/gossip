@@ -15,11 +15,14 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.getGossips();
+    this.loadGossips();
   }
-
-  getGossips(){
-    return this.gossipService.getGossips().then(gossips => this.gossips = gossips);
+/*loading gossips using subscribe means if there are new gossips we will be notified.
+Would be interesting to add tag filter to hear, so if there are related gossips notify me or update my list.*/
+  loadGossips(){
+    return this.gossipService.loadGossips().subscribe(gossips => {
+      console.log(gossips);
+      this.gossips = gossips});
   }
 }
 

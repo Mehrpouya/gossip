@@ -20,9 +20,13 @@ export class Gossip implements IGossip{
   constructor(private gossipService:GossipService) {}
   //This function will communicate with the gossip service to update the mongodb backend with any changes.
   addGossip(){
-    this.gossipService.addGossip(this).then();
+    console.log("will call the service to add gossip");
+    // this.gossipService.addGossip(this).then();
   }
+
+  //TODO: research to find out whether it is better to use promise or observable in order to have live updates on keyup.
   updateGossip(){
-    this.gossipService.addGossip(this).then();
+    console.log("will call the service to update gossip");
+    // this.gossipService.addGossip(this).then();
   }
 }
