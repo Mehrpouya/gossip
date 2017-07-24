@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Gossip} from "./gossip.component";
+import {Gossip,SerializationHelper} from "./gossip.component";
 import { HttpClient,HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 
 import 'rxjs/add/operator/map';//for converting the raw gossip json to gossip class.
 import 'rxjs/add/operator/catch';
+import * as _ from 'lodash';
 
 // interface Gossip{
 //   title : string; //Title of the gossip
@@ -15,28 +16,25 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class GossipService {
   private apiRoot:string = 'http://localhost:8080/gossip-collection';
-
+  private gossips= [];
   constructor(private http: HttpClient) {}
   // gossips:Gossip[] = [
   //   {title : "RBS fraud", body : "blah blah"},{title : "TSB fraud", body : "blah blah blah blah"}
   // ];
 
 
-  loadGossips(): Observable<Gossip[]> {
-  return this.http.get(this.apiRoot)
-
-    .map((res:Response) =>
-    {
-      // console.log(res);
-      return res.json();})
-  //   //...errors if any
-  //   .catch((this.handleError));
+  loadGossips():Observable<Gossip[]> {
+    return this.http.get(this.apiRoot).map(data => _.values(data));
   }
 
-  private handleError(error: Response | any) {
-    // console.error(error);
-    // return Observable.throw(error); // <= B
-  }
+
+
+
+
+  // private handleError(error: Response | any) {
+  //   // console.error(error);
+  //   // return Observable.throw(error); // <= B
+  // }
 
   // updateGossip(_gossip:Gossip):Promise<String>{
   //   return Promise.resolve('success');
