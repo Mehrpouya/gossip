@@ -10,11 +10,19 @@ class Controller {
   }
 
   find(req, res, next) {
-    return this.facade.find(req.query)
+
+      // var pattern = new RegExp( '.*' + req.query + '.*', "i"); /* case-insensitive RegExp search */
+      return this.facade.find(req.query)
       .then(collection => res.status(200).json(collection))
       .catch(err => next(err));
   }
-
+  findByTitle(req, res, next) {
+        // var pattern = new RegExp( '.*' + req.query + '.*', "i"); /* case-insensitive RegExp search */
+       return this.facade.find(({title: { $regex: '.*' + req.query.title + '.*' } }))
+      //  return this.facade.find(req.query)
+       .then(collection => res.status(200).json(collection))
+       .catch(err => next(err));
+  }
   findOne(req, res, next) {
     return this.facade.findOne(req.query)
       .then(doc => res.status(200).json(doc))
