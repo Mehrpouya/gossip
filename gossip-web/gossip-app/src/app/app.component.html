@@ -1,13 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<h2 style="color:blue">My Gossips</h2>
 
-<ul *ngIf="gossips$ | async as gossips else noData">
-  <li *ngFor="let gossip of gossips">
-    {{gossip.title}}
-  </li>
-</ul>
+<app-gossip-search></app-gossip-search>
 <!--<ul class="list-group">-->
-  <!--<li *ngFor="let gos of gossips | async" class="list-group-item list-group-item-info">-->
-    <!--<span style="color:blue" contenteditable="true">{{gos.title}} - {{gos.body}}</span>-->
-  <!--</li>-->
+<!--<li *ngFor="let gos of gossips | async" class="list-group-item list-group-item-info">-->
+<!--<span style="color:blue" contenteditable="true">{{gos.title}} - {{gos.body}}</span>-->
+<!--</li>-->
 <!--</ul>-->

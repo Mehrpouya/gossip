@@ -1,30 +1,31 @@
 import { Injectable } from '@angular/core';
-import {Gossip,SerializationHelper} from "./gossip.component";
-import { HttpClient,HttpResponse } from '@angular/common/http';
+import {Gossip} from "./classes/gossip";
+import { HttpClient,HttpResponse,HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-
-
 import 'rxjs/add/operator/map';//for converting the raw gossip json to gossip class.
 import 'rxjs/add/operator/catch';
 import * as _ from 'lodash';
 
-// interface Gossip{
-//   title : string; //Title of the gossip
-//   body : string; // Body of the gossip
-// }
-
 @Injectable()
 export class GossipService {
   private apiRoot:string = 'http://localhost:8080/gossip-collection';
+  private headers = new HttpHeaders().set("Content-Type", "application/json");
   private gossips= [];
   constructor(private http: HttpClient) {}
-  // gossips:Gossip[] = [
-  //   {title : "RBS fraud", body : "blah blah"},{title : "TSB fraud", body : "blah blah blah blah"}
-  // ];
-
-
   loadGossips():Observable<Gossip[]> {
     return this.http.get(this.apiRoot).map(data => _.values(data));
+  }
+  //TODO: Change apiRoute to use search params instead of injecting param directly
+  searchGossips(_term:string):Observable<Gossip[]>{
+  if (_term.length<=0)
+  {
+    this.gossips=null;
+    return;
+  }
+    let searchParams = new HttpParams();
+    let apiRoute = "/search-gossip-titles?title="+_term;
+    searchParams.set('title', _term);
+    return this.http.get(this.apiRoot+apiRoute).map(data => _.values(data));
   }
 
 
