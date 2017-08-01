@@ -37,9 +37,9 @@ export class GossipService {
   //   // return Observable.throw(error); // <= B
   // }
 
-  // updateGossip(_gossip:Gossip):Promise<String>{
-  //   return Promise.resolve('success');
-  // }
+  updateGossip(_gossip:Gossip):void{
+    console.log(this);
+  }
   // addGossip(_gossip:Gossip):Promise<String>{
     // let promise = new Promise((resolve, reject) => {
     //   let apiURL = `${this.apiRoot}?term=${_gossip}&media=music&limit=20`;

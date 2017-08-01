@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { OnInit,NgModule } from '@angular/core';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
+})
+@NgModule({
+  imports: [NgbModule.forRoot()]
 })
 export class AppComponent implements OnInit {
   constructor() {

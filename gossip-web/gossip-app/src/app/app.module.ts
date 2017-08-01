@@ -6,7 +6,8 @@ import  {GossipService } from './gossip.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GossipSearchComponent } from './gossip-search/gossip-search.component';
 import { GossipResultsComponent } from './gossip-results/gossip-results.component';
-import { GossipDetailComponent } from './gossip-detail/gossip-detail.component';
+import { GossipDetailComponent } from './gossip/gossip.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Gossip} from './classes/gossip';
 
 @NgModule({
