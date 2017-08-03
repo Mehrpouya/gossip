@@ -27,8 +27,12 @@
     "angular-ui-bootstrap": "^2.5.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "events-polyfill": "^1.1.9",
     "font-awesome": "^4.7.0",
-    "rxjs": "^5.1.0",
+    "ng2-opd-popup": "^1.1.21",
+    "ngx-dom-component": "^1.0.2",
+    "ngx-popups": "^1.0.5",
+    "rxjs": "^5.4.2",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
