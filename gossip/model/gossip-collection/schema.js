@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const gossipCollectionSchema = new Schema({
   title: { type: String, required: true },
   body: { type: String },
-  url: {type: String}
+  tags:  [{type: String}]
 });
 //
 // {
