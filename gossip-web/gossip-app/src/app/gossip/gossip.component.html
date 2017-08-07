@@ -1,0 +1,9 @@
+<div *ngIf="visible" class="dialog" (click)="toggleDetail()" >
+  <div class="gossip-detail" >
+    <h2 contenteditable="true" (input)="gossip.title = $event.target.innerText" (keyup)="setGossipTitle(gossip)">{{gossip.title}}</h2>
+    <div>
+      <div class="gossip-body" contenteditable="true" (input)="gossip.body = $event.target.innerText" (keyup)="setGossipBody(gossip)">{{gossip.body}}</div>
+    </div>
+  </div>
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>

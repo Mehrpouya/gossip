@@ -1,0 +1,24 @@
+<div ng-app="app" >
+  <div *ngIf="gossips">
+    <ul class="gossip-result-list">
+      <li class="col-lg-3 col-md-3 col-sm-3" *ngFor="let gossip of gossips" (click)="onSelect(gossip)">
+      <!--<li class="col-lg-3 col-md-3 col-sm-3" *ngFor="let gossip of gossips" (click)="onSelect(gossip)">-->
+        <div class="gossip-title">{{gossip.title}}</div>
+        <div class="gossip-sample"> {{gossip.body}}</div>
+        <!--ng-model="gossip.title" (keyup)="updateGossipTitle($event,gossip)"-->
+      </li>
+    </ul>
+    <div *ngIf="gossips.length <= 0" class="btn-group">
+      <button class="btn btn-default" type="button">Start Gossip
+        <div></div>
+      </button>
+    </div>
+      <app-gossip [gossip]="selectedGossip" [(visible)]="visible"></app-gossip>
+  </div>
+</div>
+<!--<div *ngIf="selectedGossip">-->
+<!--<h2 class="gossip-title">{{selectedGossip.title}}</h2>-->
+<!--<div>-->
+<!--<div class="gossip-body">{{selectedGossip.body}}</div>-->
+<!--</div>-->
+<!--</div>-->
