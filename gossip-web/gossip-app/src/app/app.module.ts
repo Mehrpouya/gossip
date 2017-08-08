@@ -7,10 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {GossipSearchComponent} from './gossip-search/gossip-search.component';
 import {GossipResultsComponent} from './gossip-results/gossip-results.component';
 import {GossipComponent} from './gossip/gossip.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {Gossip} from './classes/gossip';
 import {RouterModule,Routes} from "@angular/router";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({

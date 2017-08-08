@@ -25,10 +25,12 @@ export class GossipComponent implements OnInit {
   @Input() closable = true;
   @Input() visible: boolean;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  public editable: boolean = true;
 
   constructor(private gossipService:GossipService) { }
   ngOnInit() {
   }
+  //TODO: Check if this solution can fix the content editable caret issue. :  https://stackoverflow.com/questions/39023701/angular-2-contenteditable
   setGossipTitle(_gossip):void {
     this.gossipService.updateGossip(_gossip);
   }

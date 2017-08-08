@@ -1,8 +1,11 @@
 <div *ngIf="visible" class="dialog" (click)="toggleDetail()" >
   <div class="gossip-detail" >
-    <h2 contenteditable="true" (input)="gossip.title = $event.target.innerText" (keyup)="setGossipTitle(gossip)">{{gossip.title}}</h2>
+    <!--<h2 contenteditable="true" [textContent]="gossip.title" (input)="gossip.title = $event.target.textContent" (keyup)="setGossipTitle(gossip)">{{gossip.title}}</h2>-->
+    <input class="gossip-title" [value]="gossip.title" [textContent]="gossip.title" (input)="gossip.title = $event.target.value" (keyup)="setGossipTitle(gossip)"/>
     <div>
-      <div class="gossip-body" contenteditable="true" (input)="gossip.body = $event.target.innerText" (keyup)="setGossipBody(gossip)">{{gossip.body}}</div>
+
+      <!--<div class="gossip-body" contenteditable="true" (input)="gossip.body = $event.target.innerText" (keyup)="setGossipBody(gossip)">{{gossip.body}}</div>-->
+      <input class="gossip-body" [value]="gossip.body" (input)="gossip.body = $event.target.value" (keyup)="setGossipBody(gossip)"/>
     </div>
   </div>
 </div>
