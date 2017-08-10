@@ -5,7 +5,9 @@ const Schema = mongoose.Schema;
 const gossipCollectionSchema = new Schema({
   title: { type: String, required: true },
   body: { type: String },
-  tags:  [{type: String}]
+  tags:  [{type: String}],
+  updated: { type: Date, default: Date.now },
+  comments:[{comemnt:{type:String},date_created:{type:Date ,default: Date.now}}]
 });
 //
 // {

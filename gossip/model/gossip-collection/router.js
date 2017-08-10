@@ -13,5 +13,6 @@ router.route('/:id')
   .put((...args) => controller.update(...args))
   .get((...args) => controller.findById(...args))
   .delete((...args) => controller.remove(...args));
-
+// TODO:add this solution in order to be able to push to the comments array.
+//https://stackoverflow.com/questions/33049707/push-items-into-mongo-array-via-mongoose 
 module.exports = router;
