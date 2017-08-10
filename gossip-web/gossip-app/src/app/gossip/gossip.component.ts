@@ -51,6 +51,9 @@ export class GossipComponent implements OnInit {
     this.visible = false;
     this.visibleChange.emit(this.visible);
   }
+  addGossip(_gossip):void {
+    console.log(_gossip,"addiong");
+  }
 
 
 }
