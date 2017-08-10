@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {GossipService} from '../gossip.service'
 import {Gossip} from "../classes/gossip";
 import 'rxjs/add/operator/debounceTime'; // This library allows us to add a little delay after each keyup so we won't bombard the server with requests
-import { Observable } from 'rxjs/Observable';
 import {FormControl} from "@angular/forms";
+import 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-gossip-search',
@@ -20,12 +21,13 @@ export class GossipSearchComponent implements OnInit {
       this.gossips=gossips;
     });
     // debouncetime allows us to add a little delay after each keyup so we won't bombard the server with requests
-    //TODO: Look into this tutorial to see whether there is a need to implement switchMap?
     //https://angular.io/tutorial/toh-pt6#!#observables
-    this.term.valueChanges.debounceTime(400).subscribe(term => this.gossipService.searchGossips(term).subscribe(gossips => {
+    this.term.valueChanges.debounceTime(400)
+      .switchMap(term => this.gossipService.searchGossips(term))
+      .subscribe(gossips => {
       console.log("subscribe comming back with this",gossips);
       this.gossips=gossips;
-    }));
+    });
   }
 
   ngOnInit() {
@@ -34,9 +36,7 @@ export class GossipSearchComponent implements OnInit {
   //https://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html
 
   searchGossips(term){
-    this.gossipService.searchGossips(term).subscribe(gossips => {
-      this.gossips=gossips;
-    });
+
   }
 
 }
