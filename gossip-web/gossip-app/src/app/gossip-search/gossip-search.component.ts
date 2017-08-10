@@ -20,7 +20,8 @@ export class GossipSearchComponent implements OnInit {
       this.gossips=gossips;
     });
     // debouncetime allows us to add a little delay after each keyup so we won't bombard the server with requests
-    // TODO: Need to fix the error when the input is empty
+    //TODO: Look into this tutorial to see whether there is a need to implement switchMap?
+    //https://angular.io/tutorial/toh-pt6#!#observables
     this.term.valueChanges.debounceTime(400).subscribe(term => this.gossipService.searchGossips(term).subscribe(gossips => {
       console.log("subscribe comming back with this",gossips);
       this.gossips=gossips;
