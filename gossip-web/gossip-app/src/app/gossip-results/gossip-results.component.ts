@@ -18,6 +18,7 @@ export class GossipResultsComponent implements OnInit {
   @Input() gossips: Gossip[];
   selectedGossip: Gossip;
   visible: Boolean;
+  method:String;
 
   constructor() {
   }
@@ -53,6 +54,12 @@ export class GossipResultsComponent implements OnInit {
   onSelect(_gossip: Gossip): void {
     this.visible = true;
     this.selectedGossip = _gossip;
+    this.method="update";
+  }
+  startGossip():void{
+    this.visible = true;
+    this.selectedGossip = new Gossip(11212,'new gossip','gossip details','',[]);
+    this.method="add";
   }
 }
 

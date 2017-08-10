@@ -24,6 +24,7 @@ export class GossipComponent implements OnInit {
   @Input() gossip:Gossip;
   @Input() closable = true;
   @Input() visible: boolean;
+  @Input() method:string;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   public editable: boolean = true;
 

@@ -9,11 +9,11 @@
       </li>
     </ul>
     <div *ngIf="gossips.length <= 0" class="btn-group">
-      <button class="btn btn-default" type="button">Start Gossip
+      <button class="btn btn-default" type="button" (click)="startGossip()">Start Gossip
         <div></div>
       </button>
     </div>
-      <app-gossip [gossip]="selectedGossip" [(visible)]="visible"></app-gossip>
+      <app-gossip [gossip]="selectedGossip" [(visible)]="visible" [method]="method"></app-gossip>
   </div>
 </div>
 <!--<div *ngIf="selectedGossip">-->

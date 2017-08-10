@@ -33,7 +33,6 @@ export class GossipService {
 
   updateGossip(_gossip: Gossip) :void {
     const headers = new HttpHeaders().set("Content-Type", "application/json");
-
     this.http.put(this.apiRoot + "/" + _gossip._id,
       {
         "title": _gossip.title,
@@ -42,21 +41,15 @@ export class GossipService {
       {headers})
       .subscribe(
         (val) => {
-
           console.log("PUT call successful value returned in body", val);
-
         },
         response => {
-
           console.log("PUT call in error", response);
-
         },
         () => {
-
           console.log("The PUT observable is now completed.");
         }
       );
-
   }
   // addGossip(_gossip:Gossip):Promise<String>{
     // let promise = new Promise((resolve, reject) => {

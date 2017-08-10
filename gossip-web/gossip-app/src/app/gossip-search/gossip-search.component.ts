@@ -13,13 +13,11 @@ import 'rxjs/Rx';
 })
 export class GossipSearchComponent implements OnInit {
   // gossips$:Observable<Gossip[]>;
-  gossips: Gossip[];
+  gossips: Gossip[]=[];
   selectedGossip:Gossip;
   term = new FormControl();
   constructor(private gossipService:GossipService) {
-    this.gossipService.searchGossips("a").subscribe(gossips => {
-      this.gossips=gossips;
-    });
+
     // debouncetime allows us to add a little delay after each keyup so we won't bombard the server with requests
     //https://angular.io/tutorial/toh-pt6#!#observables
     this.term.valueChanges.debounceTime(400)

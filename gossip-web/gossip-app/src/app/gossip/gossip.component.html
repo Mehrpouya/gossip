@@ -8,5 +8,6 @@
       <input class="gossip-body" [value]="gossip.body" (input)="gossip.body = $event.target.value" (keyup)="setGossipBody(gossip)"/>
     </div>
   </div>
+  <input type="button" [(value)]="method"/>
 </div>
 <div *ngIf="visible" class="overlay" (click)="close()"></div>
