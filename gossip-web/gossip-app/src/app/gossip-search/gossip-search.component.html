@@ -1,6 +1,6 @@
 <div class="row">
   <h1>Search Gossips</h1>
-    <input class="search-gossips-input" #term type="text" (keyup)="searchGossips(term.value)">
+    <input class="search-gossips-input" [formControl]="term" type="text">
   <!--<input class="search-gossips-input" type="text" [formControl]="term">-->
 </div>
 <div class="row">

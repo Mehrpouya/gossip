@@ -8,6 +8,7 @@ import {GossipSearchComponent} from './gossip-search/gossip-search.component';
 import {GossipResultsComponent} from './gossip-results/gossip-results.component';
 import {GossipComponent} from './gossip/gossip.component';
 import {RouterModule,Routes} from "@angular/router";
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {RouterModule,Routes} from "@angular/router";
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
       [
         {path: 'gossip', component: GossipComponent},
