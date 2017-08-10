@@ -7,7 +7,10 @@ const gossipCollectionSchema = new Schema({
   body: { type: String },
   tags:  [{type: String}],
   updated: { type: Date, default: Date.now },
-  comments:[{comemnt:{type:String},date_created:{type:Date ,default: Date.now}}]
+  comments:[{
+    comment:{type:String},
+    date_created:{type:Date ,default: Date.now}
+  }]
 });
 //
 // {
