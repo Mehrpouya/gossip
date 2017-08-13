@@ -26,6 +26,7 @@ export class GossipComponent implements OnInit {
   @Input() visible: boolean;
   @Input() method:string;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   public editable: boolean = true;
 
   constructor(private gossipService:GossipService) { }
@@ -33,7 +34,15 @@ export class GossipComponent implements OnInit {
   }
   //TODO: Check if this solution can fix the content editable caret issue. :  https://stackoverflow.com/questions/39023701/angular-2-contenteditable
   setGossipTitle(_gossip):void {
+    console.log(_gossip);
     this.gossipService.updateGossip(_gossip);
+    this.close();
+
+  }
+  updateGossipTitle(_gossip):void {
+    this.gossipService.updateGossip(_gossip);
+    this.close();
+
   }
   setGossipBody(_gossip):void {
     this.gossipService.updateGossip(_gossip);
@@ -52,7 +61,20 @@ export class GossipComponent implements OnInit {
     this.visibleChange.emit(this.visible);
   }
   addGossip(_gossip):void {
-    console.log(_gossip,"addiong");
+    this.gossipService.addGossip(_gossip).subscribe(
+      (val) => {
+        console.log("PUT call successful value returned in body", val);
+        _gossip._id = val._id;
+        this.close();
+      },
+      response => {
+        console.log("PUT call in error", response);
+      },
+      () => {
+        console.log("The PUT observable is now completed.");
+
+      }
+    );
   }
 
 

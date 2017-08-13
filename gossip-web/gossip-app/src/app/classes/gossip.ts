@@ -8,9 +8,15 @@ interface IGossip{
   url:string;
   sample:string;
   tags:string[];
+  comments:IComments[];
   // addGossip();
   // updateGossip();
 }
+interface IComments{
+  comment : string; //Title of the gossip
+  date_created : string; // Body of the gossip
+}
+
 export class Gossip implements IGossip{
   _id:number;
   title : string;
@@ -18,13 +24,15 @@ export class Gossip implements IGossip{
   url:string;
   tags:string[]
   sample: string;
+  comments:IComments[];
   private gossipService:GossipService;
-  constructor(_id:number,_title : string,_body: string, _sample:string="",_tags:string[]) {
+  constructor(_id:number,_title : string,_body: string, _sample:string="",_tags:string[],_comments:IComments[]) {
     this._id=_id;
     this.title=_title;
     this.body=_body;
     this.sample=_body;
     this.tags = _tags;
+    this.comments=_comments;
   }
   //This function will communicate with the gossip service to update the mongodb backend with any changes.
   // addGossip(){

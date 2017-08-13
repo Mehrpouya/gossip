@@ -36,7 +36,9 @@ export class GossipService {
     this.http.put(this.apiRoot + "/" + _gossip._id,
       {
         "title": _gossip.title,
-        "body": _gossip.body
+        "body": _gossip.body,
+        "tags":_gossip.tags,
+        "comments":_gossip.comments
       },
       {headers})
       .subscribe(
@@ -50,6 +52,17 @@ export class GossipService {
           console.log("The PUT observable is now completed.");
         }
       );
+  }
+  addGossip(_gossip: Gossip) :Observable<any>{
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
+    return this.http.post(this.apiRoot ,
+      {
+        "title": _gossip.title,
+        "body": _gossip.body,
+        "tags":_gossip.tags,
+        "comments":_gossip.comments
+      },
+      {headers});
   }
   // addGossip(_gossip:Gossip):Promise<String>{
     // let promise = new Promise((resolve, reject) => {

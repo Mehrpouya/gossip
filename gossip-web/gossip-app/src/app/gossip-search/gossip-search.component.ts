@@ -25,7 +25,9 @@ export class GossipSearchComponent implements OnInit {
       .subscribe(gossips => {
       console.log("subscribe comming back with this",gossips);
       this.gossips=gossips;
+      this.selectedGossip=gossips[0];
     });
+    this.term.setValue("T");
   }
 
   ngOnInit() {
