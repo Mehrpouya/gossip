@@ -1,16 +1,19 @@
 <div *ngIf="visible" class="dialog" >
   <div class="gossip-detail" >
     <!--TODO:add value change and debouncetime for updates.-->
-    <!--<h2 contenteditable="true" [textContent]="gossip.title" (input)="gossip.title = $event.target.textContent" (keyup)="setGossipTitle(gossip)">{{gossip.title}}</h2>-->
     <input class="gossip-title gossip-input" [value]="gossip.title" [textContent]="gossip.title" (input)="gossip.title = $event.target.value"/>
     <div>
-
-      <!--<div class="gossip-body" contenteditable="true" (input)="gossip.body = $event.target.innerText" (keyup)="setGossipBody(gossip)">{{gossip.body}}</div>-->
       <textarea class="gossip-body  gossip-input" [value]="gossip.body" (input)="gossip.body = $event.target.value"></textarea>
     </div>
-    <!--<div *ngIf="gossip.tags">-->
+    <div *ngIf="gossip.tags.length>0">
       <input class="gossip-tag gossip-input" *ngFor="let tag of gossip.tags" [value]="tag"  />
-    <!--</div>-->
+    </div>
+    <div *ngIf="gossip.comments" class="gossip-comments">
+      <hr/>
+        <input class="gossip-comment gossip-input" *ngFor="let comment of gossip.comments" [value]="comment.comment" (input)="comment.comment = $event.target.value" />
+        <input class="gossip-comment gossip-input"  [value]="" placeholder="Enter your comment here!" />
+      <hr/>
+    </div>
   </div>
   <input *ngIf="method === 'add'"  type="button" value="add" (click)="addGossip(gossip)"/>
   <input *ngIf="method === 'update'"  type="button" value="update" (click)="updateGossipTitle(gossip)"/>

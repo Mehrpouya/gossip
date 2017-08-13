@@ -8,11 +8,11 @@ interface IGossip{
   url:string;
   sample:string;
   tags:string[];
-  comments:IComments[];
+  comments:Comments[];
   // addGossip();
   // updateGossip();
 }
-interface IComments{
+export class Comments{
   comment : string; //Title of the gossip
   date_created : string; // Body of the gossip
 }
@@ -24,9 +24,9 @@ export class Gossip implements IGossip{
   url:string;
   tags:string[]
   sample: string;
-  comments:IComments[];
+  comments:Comments[];
   private gossipService:GossipService;
-  constructor(_id:number,_title : string,_body: string, _sample:string="",_tags:string[],_comments:IComments[]) {
+  constructor(_id:number,_title : string,_body: string, _sample:string="",_tags:string[],_comments:Comments[]) {
     this._id=_id;
     this.title=_title;
     this.body=_body;
