@@ -4,7 +4,7 @@
       <li class="col-lg-3 col-md-3 col-sm-3" *ngFor="let gossip of gossips" (click)="onSelect(gossip)">
       <!--<li class="col-lg-3 col-md-3 col-sm-3" *ngFor="let gossip of gossips" (click)="onSelect(gossip)">-->
         <div class="gossip-title">{{gossip.title}}</div>
-        <div class="gossip-sample"> {{gossip.body}}</div>
+        <div class="gossip-sample"> {{gossip.body | slice:0:100}}...</div>
         <!--ng-model="gossip.title" (keyup)="updateGossipTitle($event,gossip)"-->
       </li>
     </ul>
