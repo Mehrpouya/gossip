@@ -10,7 +10,7 @@
            (input)="gossip.title = $event.target.value"/>
   </div>
   <div *ngSwitchCase="gossip_input_type.Gossip_Body">
-    <p *ngIf="!editable" class="gossip-comment gossip-input">{{gossip.body | gossipHashtag}}</p>
+    <p *ngIf="!editable" class="gossip-comment gossip-input"  [innerHTML] ="gossip.body | gossipHashtag"></p>
     <textarea *ngIf="editable" class="gossip-comment gossip-input" [value]="gossip.body" (input)="gossip.body= $event.target.value"></textarea>
   </div>
 </div>
