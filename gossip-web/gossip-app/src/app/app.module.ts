@@ -11,6 +11,7 @@ import {RouterModule,Routes} from "@angular/router";
 import { ReactiveFormsModule } from '@angular/forms';
 import { GossipCommentComponent } from './components/gossip-comment/gossip-comment.component';
 import { GossipHashtagPipe } from './pipes/gossip-hashtag.pipe';
+import { GossipInputComponent } from './components/gossip-input/gossip-input.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { GossipHashtagPipe } from './pipes/gossip-hashtag.pipe';
     GossipResultsComponent,
     GossipComponent,
     GossipCommentComponent,
-    GossipHashtagPipe
+    GossipHashtagPipe,
+    GossipInputComponent
   ],
   imports: [
     BrowserModule,
