@@ -1,5 +1,6 @@
 import {GossipService} from "../services/gossip.service";
 import {Inject} from "@angular/core";
+import {GossipComment} from "./gossip-comment";
 
 interface IGossip{
   _id:number;
@@ -8,13 +9,9 @@ interface IGossip{
   url:string;
   sample:string;
   tags:string[];
-  comments:Comments[];
+  comments:GossipComment[];
   // addGossip();
   // updateGossip();
-}
-export class Comments{
-  comment : string; //Title of the gossip
-  date_created : string; // Body of the gossip
 }
 
 export class Gossip implements IGossip{
@@ -24,9 +21,8 @@ export class Gossip implements IGossip{
   url:string;
   tags:string[]
   sample: string;
-  comments:Comments[];
-  private gossipService:GossipService;
-  constructor(_id:number,_title : string,_body: string, _sample:string="",_tags:string[],_comments:Comments[]) {
+  comments:GossipComment[];
+  constructor(_id:number,_title : string,_body: string, _sample:string="",_tags:string[],_comments:GossipComment[]) {
     this._id=_id;
     this.title=_title;
     this.body=_body;
