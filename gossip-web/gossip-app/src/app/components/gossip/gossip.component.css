@@ -37,20 +37,6 @@ border: none ;
   margin: 1em .4em .5em 1em;
   text-align: center;
 }
-.gossip-comment{
-  width: 100%;
-  padding: .5em .5em .5em .5em;
-  margin: 1em .1em .5em .1em;
-  resize: none;
-  overflow: hidden;
-  color: #333;
-  background: #eee;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-
-}
-
 
 .gossip-container.showDetail{
   display: block;

@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import {Gossip} from "./classes/gossip";
+import {Gossip} from "../classes/gossip";
 import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';//for converting the raw gossip json to gossip class.
 import 'rxjs/add/operator/catch';
 import * as _ from 'lodash';
 
+
+/*TODO:
+* - Add an interceptor to always use https*/
 @Injectable()
 export class GossipService {
   private apiRoot: string = 'http://localhost:8080/gossip-collection';

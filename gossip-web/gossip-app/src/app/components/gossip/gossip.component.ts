@@ -1,8 +1,9 @@
 import {Component, Input,Output, OnInit,EventEmitter} from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 
-import {Gossip} from "../classes/gossip";
-import {GossipService} from "../gossip.service";
+import {Gossip} from "../../classes/gossip";
+import {GossipService} from "../../services/gossip.service";
+import {GossipHashtagPipe} from "../../pipes/gossip-hashtag.pipe"
 @Component({
   selector: 'app-gossip',
   templateUrl: './gossip.component.html',

@@ -1,4 +1,4 @@
-import {GossipService} from "../gossip.service";
+import {GossipService} from "../services/gossip.service";
 import {Inject} from "@angular/core";
 
 interface IGossip{

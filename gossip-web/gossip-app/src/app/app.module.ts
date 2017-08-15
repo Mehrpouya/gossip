@@ -2,13 +2,15 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {GossipService} from './gossip.service';
+import {GossipService} from './services/gossip.service';
 import {HttpClientModule} from '@angular/common/http';
-import {GossipSearchComponent} from './gossip-search/gossip-search.component';
-import {GossipResultsComponent} from './gossip-results/gossip-results.component';
-import {GossipComponent} from './gossip/gossip.component';
+import {GossipSearchComponent} from './components/gossip-search/gossip-search.component';
+import {GossipResultsComponent} from './components/gossip-results/gossip-results.component';
+import {GossipComponent} from './components/gossip/gossip.component';
 import {RouterModule,Routes} from "@angular/router";
 import { ReactiveFormsModule } from '@angular/forms';
+import { GossipCommentComponent } from './components/gossip-comment/gossip-comment.component';
+import { GossipHashtagPipe } from './pipes/gossip-hashtag.pipe';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     GossipSearchComponent,
     GossipResultsComponent,
-    GossipComponent
+    GossipComponent,
+    GossipCommentComponent,
+    GossipHashtagPipe
   ],
   imports: [
     BrowserModule,

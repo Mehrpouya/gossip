@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit,NgModule,Directive } from '@angular/core';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {GossipComponent} from "./gossip/gossip.component";
+import {GossipComponent} from "./components/gossip/gossip.component";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

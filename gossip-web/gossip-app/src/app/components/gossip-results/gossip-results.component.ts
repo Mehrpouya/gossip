@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Gossip} from "../classes/gossip";
+import {Gossip} from "../../classes/gossip";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgModule} from '@angular/core';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {GossipService} from '../gossip.service'
-import {Gossip} from "../classes/gossip";
+import {GossipService} from '../../services/gossip.service'
+import {Gossip} from "../../classes/gossip";
 import 'rxjs/add/operator/debounceTime'; // This library allows us to add a little delay after each keyup so we won't bombard the server with requests
 import {FormControl} from "@angular/forms";
 import 'rxjs/Rx';
