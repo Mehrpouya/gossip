@@ -4,5 +4,14 @@
     <input *ngIf="editable" class="gossip-comment gossip-input" [value]="comment.comment"
            (input)="comment.comment = $event.target.value"/>
   </div>
+  <div *ngSwitchCase="gossip_input_type.Gossip_Title">
+    <p *ngIf="!editable " class="gossip-comment gossip-input">{{gossip.title}}</p>
+    <input *ngIf="editable" class="gossip-comment gossip-input" [value]="gossip.title"
+           (input)="gossip.title = $event.target.value"/>
+  </div>
+  <div *ngSwitchCase="gossip_input_type.Gossip_Body">
+    <p *ngIf="!editable" class="gossip-comment gossip-input">{{gossip.body | gossipHashtag}}</p>
+    <textarea *ngIf="editable" class="gossip-comment gossip-input" [value]="gossip.body" (input)="gossip.body= $event.target.value"></textarea>
+  </div>
 </div>
 

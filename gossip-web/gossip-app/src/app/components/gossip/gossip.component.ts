@@ -4,6 +4,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import {Gossip} from "../../classes/gossip";
 import {GossipService} from "../../services/gossip.service";
 import {GossipHashtagPipe} from "../../pipes/gossip-hashtag.pipe"
+import {GossipInputType} from "../../enums/gossip-input-types.enum";
 @Component({
   selector: 'app-gossip',
   templateUrl: './gossip.component.html',
@@ -22,6 +23,7 @@ import {GossipHashtagPipe} from "../../pipes/gossip-hashtag.pipe"
   ]
 })
 export class GossipComponent implements OnInit {
+  gossip_input_type = GossipInputType;
   @Input() gossip:Gossip;
   @Input() closable = true;
   @Input() visible: boolean;

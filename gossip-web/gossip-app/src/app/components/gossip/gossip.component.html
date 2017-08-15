@@ -1,9 +1,11 @@
 <div *ngIf="visible" class="dialog" >
   <div class="gossip-detail" >
     <!--TODO:add value change and debouncetime for updates.-->
-    <input class="gossip-title gossip-input" [value]="gossip.title | gossipHashtag " [textContent]="gossip.title" (input)="gossip.title = $event.target.value"/>
+    <app-gossip-input [gossip]="gossip" [editable]="false" [inputType]="gossip_input_type.Gossip_Title" ></app-gossip-input>
+
+    <!--<input class="gossip-title gossip-input" [value]="gossip.title | gossipHashtag " [textContent]="gossip.title" (input)="gossip.title = $event.target.value"/>-->
     <div>
-      <textarea class="gossip-body  gossip-input" [value]="gossip.body" (input)="gossip.body = $event.target.value"></textarea>
+      <app-gossip-input [gossip]="gossip" [editable]="false" [inputType]="gossip_input_type.Gossip_Body" ></app-gossip-input>
     </div>
     <div *ngIf="gossip.tags.length>0">
       <input class="gossip-tag gossip-input" *ngFor="let tag of gossip.tags" [value]="tag"  />
