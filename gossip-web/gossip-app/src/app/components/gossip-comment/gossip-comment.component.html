@@ -1,6 +1,6 @@
 <div *ngIf="gossip.comments" class="gossip-comments">
   <hr/>
-  <input class="gossip-comment gossip-input" *ngFor="let comment of gossip.comments" [value]="comment.comment" (input)="comment.comment = $event.target.value" />
+  <app-gossip-input *ngFor="let comment of gossip.comments" [comment]="comment" ></app-gossip-input>
   <input class="gossip-comment gossip-input"  [value]="" placeholder="Enter your comment here!" />
   <hr/>
 </div>

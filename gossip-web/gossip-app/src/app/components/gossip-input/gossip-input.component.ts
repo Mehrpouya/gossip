@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-gossip-input',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gossip-input.component.css']
 })
 export class GossipInputComponent implements OnInit {
-
+  @Input() comment:Comment;
   constructor() { }
 
   ngOnInit() {
