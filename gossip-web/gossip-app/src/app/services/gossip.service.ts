@@ -24,14 +24,13 @@ export class GossipService {
 
   //TODO: Change apiRoute to use search params instead of injecting param directly
   searchGossips(_term: string): Observable<Gossip[]> {
-    // if (_term.length <= 0) {
-    //   this.gossips = null;
-    //   return;
-    // }
     let searchParams = new HttpParams();
     let apiRoute = `/search-gossip-titles?title=${_term}`;
     searchParams.set('title', _term);
     return this.http.get(this.apiRoot + apiRoute).map(data => _.values(data));
+  }
+  getGossipById(_id: string): Observable<Gossip> {
+    return this.http.get(this.apiRoot + `/${_id}`).map(data => _.values(data));
   }
 
   updateGossip(_gossip: Gossip) :void {
