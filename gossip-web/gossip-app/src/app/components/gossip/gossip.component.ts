@@ -5,6 +5,7 @@ import {Gossip} from "../../classes/gossip";
 import {GossipService} from "../../services/gossip.service";
 import {GossipHashtagPipe} from "../../pipes/gossip-hashtag.pipe"
 import {GossipInputType} from "../../enums/gossip-input-types.enum";
+import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-gossip',
   templateUrl: './gossip.component.html',
@@ -32,8 +33,17 @@ export class GossipComponent implements OnInit {
 
   public editable: boolean = true;
 
-  constructor(private gossipService:GossipService) { }
+  constructor(private gossipService:GossipService,private _route : ActivatedRoute) {
+  }
   ngOnInit() {
+    let id = this._route.snapshot.paramMap.get('id');
+    console.log(id);
+    if(id){
+      this.gossipService.getGossipById(id).subscribe(gossip => {
+        this.gossip=gossip;
+        console.log(this.gossip);
+      })
+    }
   }
   //TODO: Check if this solution can fix the content editable caret issue. :  https://stackoverflow.com/questions/39023701/angular-2-contenteditable
   setGossipTitle(_gossip):void {
