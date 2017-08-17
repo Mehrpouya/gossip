@@ -7,7 +7,7 @@
     <div>
       <app-gossip-input [gossip]="gossip" [editable]="false" [inputType]='gossip_input_type.Gossip_Body' ></app-gossip-input>
     </div>
-    <div *ngIf="gossip.tags.length>0">
+    <div *ngIf="gossip.tags">
       <input class="gossip-tag gossip-input" *ngFor="let tag of gossip.tags" [value]="tag"  />
     </div>
     <app-gossip-comment [gossip]="gossip"></app-gossip-comment>

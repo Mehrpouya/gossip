@@ -41,6 +41,7 @@ export class GossipComponent implements OnInit {
     if(id){
       this.gossipService.getGossipById(id).subscribe(gossip => {
         this.gossip=gossip;
+        this.visible=true;
         console.log(this.gossip);
       })
     }
