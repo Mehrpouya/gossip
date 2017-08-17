@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GossipCommentComponent } from './components/gossip-comment/gossip-comment.component';
 import { GossipHashtagPipe } from './pipes/gossip-hashtag.pipe';
 import { GossipInputComponent } from './components/gossip-input/gossip-input.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { GossipInputComponent } from './components/gossip-input/gossip-input.com
     GossipComponent,
     GossipCommentComponent,
     GossipHashtagPipe,
-    GossipInputComponent
+    GossipInputComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +32,9 @@ import { GossipInputComponent } from './components/gossip-input/gossip-input.com
     ReactiveFormsModule,
     RouterModule.forRoot(
       [
-        {path: 'gossip', component: GossipComponent},
-        {path: 'search', component: GossipSearchComponent}
+        {path: 'gossip/:id', component: GossipComponent},
+        {path: 'search', component: GossipSearchComponent},
+        {path: '', component: WelcomeComponent}
       ])
   ],
   providers: [GossipService],
